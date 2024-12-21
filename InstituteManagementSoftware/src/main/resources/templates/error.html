@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/main :: head('Error')}"></head>
+<body>
+    <div th:replace="~{layout/main :: nav}"></div>
+    
+    <div class="container content">
+        <div class="text-center">
+            <h1 class="display-1 text-danger">Error</h1>
+            <p class="lead" th:text="${error ?: 'An unexpected error occurred.'}">Error message</p>
+            <a href="/" class="btn btn-primary">Return to Dashboard</a>
+        </div>
+    </div>
+    
+    <div th:replace="~{layout/main :: footer}"></div>
+</body>
+</html>

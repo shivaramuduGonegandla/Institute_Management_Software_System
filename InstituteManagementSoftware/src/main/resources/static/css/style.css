@@ -1,0 +1,262 @@
+/* Global Styles */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1 0 auto;
+    padding: 20px 0;
+}
+
+.footer {
+    flex-shrink: 0;
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+    transition: transform 0.2s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Table Styles */
+.table-responsive {
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+    background-color: #f8f9fa;
+}
+
+/* Form Styles */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Links with Hover Text Change */
+.nav-link {
+    color: rgb(255, 255, 255); /* Default color */
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease, font-weight 0.3s ease, transform 0.1s ease;
+}
+
+.nav-link:hover {
+    color: #007bff; /* Change color to blue */
+    font-weight: bold; /* Make text bold on hover */
+    transform: scale(1.1); /* Slightly increase the size on hover */
+}
+
+.nav-link:active {
+    transform: scale(0.95); /* Slightly reduce the size when clicked */
+}
+
+/* Update Button */
+.btn-update {
+    background-color: #28a745; /* Green */
+    border-color: #28a745;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn-update:hover {
+    background-color: #218838; /* Darker Green */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.btn-update:active {
+    transform: scale(1); /* Reset on click */
+}
+
+/* Delete Button */
+.btn-delete {
+    background-color: #dc3545; /* Red */
+    border-color: #dc3545;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn-delete:hover {
+    background-color: #c82333; /* Darker Red */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.btn-delete:active {
+    transform: scale(1); /* Reset on click */
+}
+
+/* Search Form */
+.search-form {
+    max-width: 500px;
+    margin: 0 auto 2rem;
+}
+
+/* Validation Styles */
+.is-invalid {
+    border-color: #dc3545;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 80%;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #282828;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer__title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footer__social {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer__social-link {
+    color: #ffffff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+/* Hover effects for each social media icon */
+.footer__social-link:hover {
+    transform: scale(1.2); /* Slight zoom effect */
+}
+
+/* Instagram */
+.footer__social-link.instagram:hover {
+    color: #e4405f; /* Instagram Brand Color */
+}
+
+/* WhatsApp */
+.footer__social-link.whatsapp:hover {
+    color: #25d366; /* WhatsApp Brand Color */
+}
+
+/* GitHub */
+.footer__social-link.github:hover {
+    color: #333333; /* GitHub Brand Color */
+}
+
+/* LinkedIn */
+.footer__social-link.linkedin:hover {
+    color: #0077b5; /* LinkedIn Brand Color */
+}
+
+.footer__copy {
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+
+  /* Welcome Section Styling */
+  .welcome-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://plus.unsplash.com/premium_photo-1664104722288-30c9cd78cbf6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2lkJTIwbGFwdG9wfGVufDB8fDB8fHww') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+  }
+
+  /* Image Styling */
+  .welcome-section img {
+    width: 100%;
+    height: auto;
+    max-height: 90vh; /* Restrict image height for a more balanced look */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+
+  /* Text Styling */
+  .welcome-section h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  }
+
+  .welcome-section .lead {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Button Styling */
+  .welcome-section .btn {
+    font-size: 1.125rem;
+    padding: 12px 30px;
+    margin: 10px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .welcome-section .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+
+  .welcome-section .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+
+  .welcome-section .btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Make sure the container is responsive */
+  @media (max-width: 768px) {
+    .welcome-section h2 {
+      font-size: 2rem;
+    }
+
+    .welcome-section .lead {
+      font-size: 1rem;
+    }
+
+    .welcome-section img {
+      max-height: 60vh;
+    }
+
+    .welcome-section .btn {
+      padding: 10px 25px;
+      font-size: 1rem;
+    }
+  }
+
+
+  
+  

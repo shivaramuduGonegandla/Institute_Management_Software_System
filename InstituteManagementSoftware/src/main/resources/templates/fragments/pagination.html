@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <nav th:fragment="pagination(page)" aria-label="Page navigation" 
+         th:if="${page.totalPages > 1}">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" th:classappend="${page.first ? 'disabled' : ''}">
+                <a class="page-link" th:href="@{${#httpServletRequest.requestURI}?${#httpServletRequest.queryString != null ? #httpServletRequest.queryString + '&' : ''}page=0}" aria-label="First">
+                    <span aria-hidden="true">&laquo;&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item" th:classappend="${page.first ? 'disabled' : ''}">
+                <a class="page-link" 
+                   th:href="@{${#httpServletRequest.requestURI}?${#httpServletRequest.queryString != null ? #httpServletRequest.queryString + '&' : ''}page=${page.number - 1}}" 
+                   aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item" 
+                th:each="pageNumber : ${#numbers.sequence(0, page.totalPages - 1)}"
+                th:classappend="${pageNumber == page.number ? 'active' : ''}">
+                <a class="page-link" 
+                   th:href="@{${#httpServletRequest.requestURI}?${#httpServletRequest.queryString != null ? #httpServletRequest.queryString + '&' : ''}page=${pageNumber}}"
+                   th:text="${pageNumber + 1}"></a>
+            </li>
+            <li class="page-item" th:classappend="${page.last ? 'disabled' : ''}">
+                <a class="page-link" 
+                   th:href="@{${#httpServletRequest.requestURI}?${#httpServletRequest.queryString != null ? #httpServletRequest.queryString + '&' : ''}page=${page.number + 1}}" 
+                   aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            <li class="page-item" th:classappend="${page.last ? 'disabled' : ''}">
+                <a class="page-link" 
+                   th:href="@{${#httpServletRequest.requestURI}?${#httpServletRequest.queryString != null ? #httpServletRequest.queryString + '&' : ''}page=${page.totalPages - 1}}" 
+                   aria-label="Last">
+                    <span aria-hidden="true">&raquo;&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

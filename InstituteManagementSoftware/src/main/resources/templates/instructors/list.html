@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/main :: head('Instructors')}"></head>
+<body>
+    <div th:replace="~{layout/main :: nav}"></div>
+    
+    <div class="container content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Instructors</h1>
+            <a th:href="@{/instructors/new}" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Add Instructor
+            </a>
+        </div>
+        
+        <div th:replace="~{fragments/alerts :: success}"></div>
+        <div th:replace="~{fragments/alerts :: error}"></div>
+        
+        <div th:replace="~{fragments/search :: searchForm('/instructors', 'Search instructors...')}"></div>
+        
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Specialization</th>
+                        <th>Courses</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="instructor : ${instructors}">
+                        <td th:text="${instructor.name}">Instructor Name</td>
+                        <td th:text="${instructor.email}">email@example.com</td>
+                        <td th:text="${instructor.specialization}">Specialization</td>
+                        <td th:text="${instructor.courses.size()}">0</td>
+                        <td>
+                            <!-- Edit button -->
+                            <a th:href="@{/instructors/{id}/edit(id=${instructor.id})}" 
+                               class="btn btn-sm btn-warning btn-action">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            
+                            <!-- Delete button -->
+                            <form th:action="@{/instructors/{id}/delete(id=${instructor.id})}" method="post" style="display:inline;">
+                                <button type="submit" class="btn btn-sm btn-danger btn-action" onclick="return confirm('Are you sure you want to delete this instructor?');">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr th:if="${instructors.empty}">
+                        <td colspan="5" class="text-center">No instructors found</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div th:replace="~{fragments/pagination :: pagination(${instructors})}"></div>
+    </div>
+    
+    <div th:replace="~{layout/main :: footer}"></div>
+</body>
+</html>

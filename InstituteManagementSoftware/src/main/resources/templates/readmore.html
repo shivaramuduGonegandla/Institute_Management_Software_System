@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institute Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+		/* Detailed Page Styling */
+		.institute-banner {
+		    background: url('https://plus.unsplash.com/premium_photo-1664104722288-30c9cd78cbf6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2lkJTIwbGFwdG9wfGVufDB8fDB8fHww') no-repeat center center;
+		    background-size: cover;
+		    height: 300px;
+		    color: white;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		}
+
+		.institute-banner h1 {
+		    font-size: 3rem;
+		    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+		}
+
+		.section-title {
+		    margin-top: 40px;
+		    font-size: 2rem;
+		    font-weight: bold;
+		}
+
+		/* Card Styling */
+		.card {
+		    margin-bottom: 20px;
+		    transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.card img {
+		    max-height: 200px;
+		    object-fit: cover;
+		}
+
+		/* Course Cards */
+		.course-card {
+		    border: 2px solid #ddd;
+		    border-radius: 10px;
+		    transition: border 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.course-card:hover {
+		    border-color: rgb(255, 0, 0);
+		    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		    transform: translateY(-5px);
+		}
+
+		/* Instructor Info */
+		.instructor-info {
+		    background-color: #f8f9fa;
+		    padding: 20px;
+		    border-radius: 10px;
+		    text-align: center;
+		    transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.instructor-info img {
+		    max-width: 100%;
+		    height: auto;
+		    border-radius: 50%;
+		    transition: transform 0.3s ease;
+		}
+
+		.instructor-info h5 {
+		    margin-top: 10px;
+		    font-size: 1.2rem;
+		}
+
+		.instructor-info p {
+		    color: #666;
+		}
+
+		/* Hover effects for instructor info */
+		.instructor-info:hover {
+		    transform: translateY(-5px);
+		    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+		}
+
+		.instructor-info img:hover {
+		    transform: scale(1.5);
+		}
+
+    </style>
+</head>
+<body>
+
+<!-- Banner Section -->
+<section class="institute-banner">
+    <h1>Institute Management System</h1>
+</section>
+
+<!-- Institute Details Section -->
+<div class="container py-5">
+    <h2 class="section-title">Institute Overview</h2>
+    <p>Welcome to the Institute Management System. We offer various courses to help you grow your knowledge and advance your career. Our instructors are highly skilled professionals who are passionate about teaching.</p>
+    
+    <h3 class="section-title mt-5">Available Courses</h3>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card course-card">
+                <img src="/images/java.jpg" class="card-img-top" alt="Course Image">
+                <div class="card-body">
+                    <h5 class="card-title">Course 1: Java Programming</h5>
+                    <p class="card-text">Learn the basics of Java programming and become proficient in software development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card course-card">
+                <img src="/images/web.jpg" class="card-img-top" alt="Course Image">
+                <div class="card-body">
+                    <h5 class="card-title">Course 2: Web Development</h5>
+                    <p class="card-text">Master the skills required to develop full-fledged websites using modern technologies.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card course-card">
+                <img src="/images/datascience.jpg" class="card-img-top" alt="Course Image">
+                <div class="card-body">
+                    <h5 class="card-title">Course 3: Data Science</h5>
+                    <p class="card-text">Dive deep into data analysis, machine learning, and artificial intelligence with this comprehensive course.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card course-card">
+                <img src="/images/cloud.jpg" class="card-img-top" alt="Course Image">
+                <div class="card-body">
+                    <h5 class="card-title">Course 4: Cloud Computing</h5>
+                    <p class="card-text">Learn the fundamentals of cloud computing, including deployment models and cloud services.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card course-card">
+                <img src="/images/mobile.jpg" class="card-img-top" alt="Course Image">
+                <div class="card-body">
+                    <h5 class="card-title">Course 5: Mobile App Development</h5>
+                    <p class="card-text">Build mobile applications for Android and iOS using the latest technologies and tools.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card course-card">
+                <img src="/images/cyber.jpg" class="card-img-top" alt="Course Image">
+                <div class="card-body">
+                    <h5 class="card-title">Course 6: Cybersecurity</h5>
+                    <p class="card-text">Learn the essentials of cybersecurity, including network security, ethical hacking, and more.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Instructors Section -->
+    <h3 class="section-title mt-5">Meet Our Instructors</h3>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="instructor-info">
+                <img src="/images/1.jpg" alt="Instructor 1">
+                <h5>Rohith</h5>
+                <p>Senior Java Instructor</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="instructor-info">
+                <img src="/images/2.jpg" alt="Instructor 2">
+                <h5>Smith</h5>
+                <p>Web Development Expert</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="instructor-info">
+                <img src="/images/3.jpg" alt="Instructor 3">
+                <h5>Robert Brown</h5>
+                <p>Data Science Specialist</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="instructor-info">
+                <img src="/images/4.jpg" alt="Instructor 4">
+                <h5>Alice Johnson</h5>
+                <p>Cloud Computing Expert</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="instructor-info">
+                <img src="/images/5.jpg" alt="Instructor 5">
+                <h5>Charlie White</h5>
+                <p>Mobile App Development Expert</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="instructor-info">
+                <img src="/images/6.jpg" alt="Instructor 6">
+                <h5>Emily Davis</h5>
+                <p>Cybersecurity Specialist</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="text-center py-4">
+    <p>&copy; 2024 Institute Management System. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

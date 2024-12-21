@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/main :: head('Courses')}"></head>
+<body>
+    <div th:replace="~{layout/main :: nav}"></div>
+    
+    <div class="container content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Courses</h1>
+            <a th:href="@{/courses/new}" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Add Course
+            </a>
+        </div>
+        
+        <div th:replace="~{fragments/alerts :: success}"></div>
+        <div th:replace="~{fragments/alerts :: error}"></div>
+        
+        <div th:replace="~{fragments/search :: searchForm('/courses', 'Search courses...')}"></div>
+        
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Duration</th>
+                        <th>Instructor</th>
+                        <th>Students</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="course : ${courses}">
+                        <td th:text="${course.name}">Course Name</td>
+                        <td th:text="${#strings.abbreviate(course.description, 50)}">Description</td>
+                        <td th:text="${course.duration}">3 months</td>
+                        <td th:text="${course.instructor?.name ?: 'Not Assigned'}">Instructor Name</td>
+                        <td th:text="${course.students.size()}">0</td>
+                        <td>
+                            <a th:href="@{/courses/{id}/edit(id=${course.id})}" 
+                               class="btn btn-sm btn-warning btn-action">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a th:href="@{/courses/{id}/delete(id=${course.id})}" 
+                               class="btn btn-sm btn-danger btn-action"
+                               onclick="confirmDelete(event, 'course')">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr th:if="${courses.empty}">
+                        <td colspan="6" class="text-center">No courses found</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div th:replace="~{fragments/pagination :: pagination(${courses})}"></div>
+    </div>
+    
+    <div th:replace="~{layout/main :: footer}"></div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/main :: head('Dashboard')}">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav th:replace="~{layout/main :: nav}" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container d-flex justify-content-between">
+            <a class="navbar-brand d-flex align-items-center" th:href="@{/}">
+                <i class="fas fa-school fa-lg me-2"></i> Institute Management
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}"><i class="fas fa-tachometer-alt fa-sm"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/students}"><i class="fas fa-user-graduate fa-sm"></i> Students</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/courses}"><i class="fas fa-book fa-sm"></i> Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/instructors}"><i class="fas fa-chalkboard-teacher fa-sm"></i> Instructors</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container content">
+        
+		
+		<!-- Welcome Section -->
+		   <section class="welcome-section text-center py-5">
+		       <div class="container position-relative">
+				<img src="https://plus.unsplash.com/premium_photo-1664104722288-30c9cd78cbf6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2lkJTIwbGFwdG9wfGVufDB8fDB8fHww" 
+				     alt="Laptop Working">
+
+		           <div class="position-absolute top-50 start-50 translate-middle text-white">
+		               <h2>Welcome to Institute Management Software</h2>
+		               <p class="lead">Manage your students, courses, and instructors all in one place. Get started today and make management easier.</p>
+		               <a href="/readmore" class="btn btn-primary btn-lg me-3">Read More</a>
+		               <a href="/getstartnow" class="btn btn-success btn-lg">Get Started Now</a>
+		           </div>
+		       </div>
+		   </section>
+		   
+		   
+		   <!-- Dashboard Title -->
+		           <h1 class="mb-6">Dashboard</h1>
+        <!-- Dashboard Cards -->
+        <div class="row">
+            <!-- Students Card -->
+            <div class="col-md-4 mb-4">
+                <div class="card dashboard-card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-user-graduate fa-3x mb-3 text-primary"></i>
+                        <h5 class="card-title">Students</h5>
+                        <p class="card-text display-4" th:text="${studentCount}">0</p>
+                        <a th:href="@{/students}" class="btn btn-primary">Manage Students</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Courses Card -->
+            <div class="col-md-4 mb-4">
+                <div class="card dashboard-card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-book fa-3x mb-3 text-success"></i>
+                        <h5 class="card-title">Courses</h5>
+                        <p class="card-text display-4" th:text="${courseCount}">0</p>
+                        <a th:href="@{/courses}" class="btn btn-success">Manage Courses</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructors Card -->
+            <div class="col-md-4 mb-4">
+                <div class="card dashboard-card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-chalkboard-teacher fa-3x mb-3 text-info"></i>
+                        <h5 class="card-title">Instructors</h5>
+                        <p class="card-text display-4" th:text="${instructorCount}">0</p>
+                        <a th:href="@{/instructors}" class="btn btn-info">Manage Instructors</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activities -->
+        <div class="row mt-4">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Recent Students</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group">
+                            <a th:each="student : ${recentStudents}" 
+                               th:href="@{/students/{id}(id=${student.id})}"
+                               class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1" th:text="${student.name}">Student Name</h6>
+                                    <small th:text="${#temporals.format(student.enrollmentDate, 'dd MMM yyyy')}">Date</small>
+                                </div>
+                                <p class="mb-1" th:text="${student.course?.name ?: 'No Course Assigned'}">Course Name</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Recent Courses</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group">
+                            <a th:each="course : ${recentCourses}" 
+                               th:href="@{/courses/{id}(id=${course.id})}"
+                               class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1" th:text="${course.name}">Course Name</h6>
+                                    <small th:text="${course.duration}">Duration</small>
+                                </div>
+                                <p class="mb-1" th:text="${course.instructor?.name ?: 'No Instructor Assigned'}">Instructor Name</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container">
+            <h1 class="footer__title"><span>Shivaramudu</h1>
+            <p>Full Stack Java Web Developer</p>
+
+            <ul class="footer__social">
+                <li><a href="https://github.com/shivaramuduGonegandla" target="_blank" class="footer__social-link github"><i class="fab fa-github fa-lg"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/shivaramudu-gonegandla-590309251/" target="_blank" class="footer__social-link linkedin"><i class="fab fa-linkedin fa-lg"></i></a></li>
+                <li><a href="https://www.instagram.com/lovelyshiva_1125_/" target="_blank" class="footer__social-link instagram"><i class="fab fa-instagram fa-lg"></i></a></li>
+                <li><a href="https://wa.me/919951916964?text=Hi,%20I%20want%20website" target="_blank" class="footer__social-link whatsapp"><i class="fab fa-whatsapp fa-lg"></i></a></li>
+            </ul>
+
+            <span class="footer__copy"><i class="fa-solid fa-copyright"></i> Copyright Shivaramudu Gonegandla All Rights Reserved 2024.</span>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/main.js}"></script>
+</body>
+</html>

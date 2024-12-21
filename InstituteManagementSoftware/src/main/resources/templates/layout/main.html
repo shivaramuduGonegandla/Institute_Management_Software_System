@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title} + ' - Institute Management'">Institute Management System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+    
+	<!-- Navigation -->
+    <nav th:fragment="nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container d-flex justify-content-between">
+            <!-- Institute Management logo on the left with an icon -->
+            <a class="navbar-brand d-flex align-items-center" th:href="@{/}">
+                <i class="fas fa-school fa-lg me-2"></i> Institute Management
+            </a>
+            <!-- Navigation Links on the right -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto"> <!-- Add ms-auto for right-alignment -->
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">
+                            <i class="fas fa-tachometer-alt fa-sm"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/students}">
+                            <i class="fas fa-user-graduate fa-sm"></i> Students
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/courses}">
+                            <i class="fas fa-book fa-sm"></i> Courses
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/instructors}">
+                            <i class="fas fa-chalkboard-teacher fa-sm"></i> Instructors
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Footer -->
+		
+	<!-- Footer Start Section -->
+	<footer class="footer">
+	    <div class="footer__container container">
+	        <h1 class="footer__title"><span>Shivaramudu</h1>
+	        <p>Full Stack Java Web Developer</p>
+
+	        <!-- Social Media Links with Icons -->
+	        <ul class="footer__social">
+	            <li>
+	                <a href="https://github.com/shivaramuduGonegandla" target="_blank" class="footer__social-link github">
+	                    <i class="fab fa-github fa-lg"></i> <!-- GitHub Icon -->
+	                </a>
+	            </li>
+	            <li>
+	                <a href="https://www.linkedin.com/in/shivaramudu-gonegandla-590309251/" target="_blank" class="footer__social-link linkedin">
+	                    <i class="fab fa-linkedin fa-lg"></i> <!-- LinkedIn Icon -->
+	                </a>
+	            </li>
+	            <li>
+	                <a href="https://www.instagram.com/lovelyshiva_1125_/" target="_blank" class="footer__social-link instagram">
+	                    <i class="fab fa-instagram fa-lg"></i> <!-- Instagram Icon -->
+	                </a>
+	            </li>
+	            <li>
+	                <a href="https://wa.me/919951916964?text=Hi,%20I%20want%20website" target="_blank" class="footer__social-link whatsapp">
+	                    <i class="fab fa-whatsapp fa-lg"></i> <!-- WhatsApp Icon -->
+	                </a>
+	            </li>
+	        </ul>
+
+	        <span class="footer__copy">
+	            <i class="fa-solid fa-copyright"></i> Copyright Shivaramudu Gonegandla All Rights Reserved 2024.
+	        </span>
+	    </div>
+	</footer>
+	<!-- Footer End Section -->
+
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Custom JS -->
+	<script th:src="@{/js/main.js}"></script>
+
+</body>
+</html>

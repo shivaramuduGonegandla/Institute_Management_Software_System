@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <form th:fragment="searchForm(action, placeholder)" th:action="@{${action}}" method="get" class="d-flex mb-4">
+        <input type="text" name="search" class="form-control me-2" 
+               th:placeholder="${placeholder}" th:value="${param.search}">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>
+</body>
+</html>
